@@ -1,0 +1,6 @@
+module Pods_FixApp {
+  umbrella header "Pods-FixApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
