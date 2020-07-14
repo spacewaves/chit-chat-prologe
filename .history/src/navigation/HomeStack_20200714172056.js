@@ -2,6 +2,7 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "../screens/HomeScreen";
 import AddRoomScreen from "../screens/AddRoomScreen";
+import { AuthContext } from "./AuthProvider";
 
 const ChatAppStack = createStackNavigator();
 const ModalStack = createStackNavigator();

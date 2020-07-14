@@ -5,6 +5,7 @@ import AddRoomScreen from "../screens/AddRoomScreen";
 
 const ChatAppStack = createStackNavigator();
 const ModalStack = createStackNavigator();
+const Stack = createStackNavigator();
 
 function ChatApp() {
   return (

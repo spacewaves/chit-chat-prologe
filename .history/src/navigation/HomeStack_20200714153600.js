@@ -5,6 +5,7 @@ import AddRoomScreen from "../screens/AddRoomScreen";
 
 const ChatAppStack = createStackNavigator();
 const ModalStack = createStackNavigator();
+const Stack = createStackNavigator();
 
 function ChatApp() {
   return (
@@ -21,14 +22,5 @@ function ChatApp() {
     >
       <ChatAppStack.Screen name="Home" component={HomeScreen} />
     </ChatAppStack.Navigator>
-  );
-}
-
-export default function HomeStack() {
-  return (
-    <ModalStack.Navigator mode="modal" headerMode="none">
-      <ModalStack.Screen name="ChatApp" component={ChatApp} />
-      <ModalStack.Screen name="AddRoom" component={AddRoomScreen} />
-    </ModalStack.Navigator>
   );
 }

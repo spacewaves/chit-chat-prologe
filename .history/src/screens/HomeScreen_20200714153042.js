@@ -4,9 +4,8 @@ import { Title } from "react-native-paper";
 import { AuthContext } from "../navigation/AuthProvider";
 import FormButton from "../components/FormButton";
 
-export default function HomeScreen({ navigation }) {
+export default function HomeScreen() {
   const { user, logout } = useContext(AuthContext);
-
   return (
     <View style={styles.container}>
       <Title>Home Screen</Title>

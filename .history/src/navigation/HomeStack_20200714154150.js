@@ -24,7 +24,7 @@ function ChatApp() {
   );
 }
 
-export default function HomeStack() {
+function HomeStack() {
   return (
     <ModalStack.Navigator mode="modal" headerMode="none">
       <ModalStack.Screen name="ChatApp" component={ChatApp} />
