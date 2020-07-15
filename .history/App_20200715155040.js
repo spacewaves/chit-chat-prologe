@@ -27,6 +27,8 @@ const firebaseConfig = {
 // launch firebase so it can be used later in the app
 firebase.initializeApp(firebaseConfig);
 
+const dbh = firebase.firestore();
+
 export default function App() {
   return <Providers />;
 }

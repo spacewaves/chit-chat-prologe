@@ -4,9 +4,7 @@ import { IconButton, Title } from "react-native-paper";
 import FormInput from "../components/FormInput";
 import FormButton from "../components/FormButton";
 
-// both needed to use firestore
 import * as firebase from "firebase";
-import "firebase/firestore";
 
 export default function AddRoomScreen({ navigation }) {
   const [roomName, setRoomName] = useState("");
