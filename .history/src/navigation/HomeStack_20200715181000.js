@@ -36,7 +36,6 @@ function ChatApp() {
           ),
         })}
       />
-      <ChatAppStack.Screen name="Room" component={RoomScreen} />
     </ChatAppStack.Navigator>
   );
 }
