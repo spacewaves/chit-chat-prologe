@@ -94,10 +94,9 @@ const styles = StyleSheet.create({
   bottomComponentContainer: {
     justifyContent: "center",
     alignItems: "center",
-  },
-  loadingContainer: {
+  },  loadingContainer: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
+    alignItems: 'center',
+    justifyContent: 'center'
 });
+

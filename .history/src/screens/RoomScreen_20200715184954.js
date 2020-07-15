@@ -63,13 +63,6 @@ export default function RoomScreen() {
       </View>
     );
   }
-  function renderLoading() {
-    return (
-      <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#6646ee" />
-      </View>
-    );
-  }
   return (
     <GiftedChat
       messages={messages}
@@ -94,10 +87,5 @@ const styles = StyleSheet.create({
   bottomComponentContainer: {
     justifyContent: "center",
     alignItems: "center",
-  },
-  loadingContainer: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
   },
 });
