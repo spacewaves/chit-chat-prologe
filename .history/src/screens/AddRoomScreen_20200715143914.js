@@ -6,24 +6,9 @@ import FormButton from "../components/FormButton";
 
 import * as firebase from "firebase";
 import "firebase/firestore";
-
 export default function AddRoomScreen({ navigation }) {
   const [roomName, setRoomName] = useState("");
   // ... Firestore query will come here later
-
-  function handleButtonPress() {
-    if (roomName.length > 0) {
-      firebase
-        .firestore()
-        .collection("THREADS")
-        .add({
-          name: roomName,
-        })
-        .then(() => {
-          navigation.navigate("Home");
-        });
-    }
-  }
 
   return (
     <View style={styles.rootContainer}>
@@ -78,3 +63,17 @@ const styles = StyleSheet.create({
     fontSize: 22,
   },
 });
+
+function handleButtonPress() {
+  if (roomName.length > 0) {
+    firestore()
+      .collection('THREADS')
+      .add({
+        name: roomName
+        }
+      })
+      .then(() => {
+        navigation.navigate('Home');
+      });
+  }
+}

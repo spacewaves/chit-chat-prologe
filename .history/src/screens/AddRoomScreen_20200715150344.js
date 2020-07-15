@@ -11,20 +11,6 @@ export default function AddRoomScreen({ navigation }) {
   const [roomName, setRoomName] = useState("");
   // ... Firestore query will come here later
 
-  function handleButtonPress() {
-    if (roomName.length > 0) {
-      firebase
-        .firestore()
-        .collection("THREADS")
-        .add({
-          name: roomName,
-        })
-        .then(() => {
-          navigation.navigate("Home");
-        });
-    }
-  }
-
   return (
     <View style={styles.rootContainer}>
       <View style={styles.closeButtonContainer}>

@@ -5,7 +5,7 @@ import FormInput from "../components/FormInput";
 import FormButton from "../components/FormButton";
 
 import * as firebase from "firebase";
-import "firebase/firestore";
+import "@firebase/firestore";
 
 export default function AddRoomScreen({ navigation }) {
   const [roomName, setRoomName] = useState("");
@@ -13,13 +13,21 @@ export default function AddRoomScreen({ navigation }) {
 
   function handleButtonPress() {
     if (roomName.length > 0) {
-      firebase
-        .firestore()
+      firestore()
         .collection("THREADS")
         .add({
           name: roomName,
+          latestMessage: {
+            text: `You have joined the room ${roomName}.`,
+            createdAt: new Date().getTime(),
+          },
         })
-        .then(() => {
+        .then((docRef) => {
+          docRef.collection("MESSAGES").add({
+            text: `You have joined the room ${roomName}.`,
+            createdAt: new Date().getTime(),
+            system: true,
+          });
           navigation.navigate("Home");
         });
     }

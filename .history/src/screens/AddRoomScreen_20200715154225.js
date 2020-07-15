@@ -5,27 +5,15 @@ import FormInput from "../components/FormInput";
 import FormButton from "../components/FormButton";
 
 import * as firebase from "firebase";
-import "firebase/firestore";
+import "@firebase/firestore";
 
 export default function AddRoomScreen({ navigation }) {
   const [roomName, setRoomName] = useState("");
   // ... Firestore query will come here later
 
-  function handleButtonPress() {
-    if (roomName.length > 0) {
-      firebase
-        .firestore()
-        .collection("THREADS")
-        .add({
-          name: roomName,
-        })
-        .then(() => {
-          navigation.navigate("Home");
-        });
-    }
-  }
+  //github.com/spacewaves/chit-chat-prologe/blob/9835a4c1da6a21194eb3d6d28654bf0db0b3755b/src/screens/AddRoomScreen.js#L14
 
-  return (
+  https: return (
     <View style={styles.rootContainer}>
       <View style={styles.closeButtonContainer}>
         <IconButton

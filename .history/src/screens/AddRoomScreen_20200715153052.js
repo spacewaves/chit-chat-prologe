@@ -13,18 +13,16 @@ export default function AddRoomScreen({ navigation }) {
 
   function handleButtonPress() {
     if (roomName.length > 0) {
-      firebase
-        .firestore()
-        .collection("THREADS")
-        .add({
-          name: roomName,
+      dbh.collection('THREADS')
+        .set({
+          name: roomName
+          }
         })
         .then(() => {
-          navigation.navigate("Home");
+          navigation.navigate('Home');
         });
     }
   }
-
   return (
     <View style={styles.rootContainer}>
       <View style={styles.closeButtonContainer}>
