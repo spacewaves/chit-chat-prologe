@@ -1,4 +1,3 @@
-// imported this to make icons appear in published app
 import { registerRootComponent } from "expo";
 import React from "react";
 import { Provider as PaperProvider } from "react-native-paper";
@@ -18,5 +17,4 @@ export default function Providers() {
     </PaperProvider>
   );
 }
-// makes icons appear in published app
 registerRootComponent(Routes);
