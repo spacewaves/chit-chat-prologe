@@ -185,13 +185,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   systemMessageText: {
-    fontSize: 14,
+    fontSize: 36,
     color: "#fff",
     fontWeight: "bold",
-  },
-  systemMessageWrapper: {
-    backgroundColor: "#6646ee",
-    borderRadius: 4,
-    padding: 5,
   },
 });

@@ -19,11 +19,10 @@ export default function HomeScreen({ navigation }) {
           return {
             _id: documentSnapshot.id,
             name: "",
-
-            latestMessage: {
-              text: "",
-            },
             ...documentSnapshot.data(),
+            latestMessage: {
+              text: "sdsd",
+            },
           };
         });
 

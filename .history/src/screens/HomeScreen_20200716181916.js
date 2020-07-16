@@ -19,11 +19,10 @@ export default function HomeScreen({ navigation }) {
           return {
             _id: documentSnapshot.id,
             name: "",
-
+            ...documentSnapshot.data(),
             latestMessage: {
               text: "",
             },
-            ...documentSnapshot.data(),
           };
         });
 
@@ -56,7 +55,7 @@ export default function HomeScreen({ navigation }) {
           >
             <List.Item
               title={item.name}
-              description={item.latestMessage.text}
+              description={"hello"}
               titleNumberOfLines={1}
               titleStyle={styles.listTitle}
               descriptionStyle={styles.listDescription}

@@ -18,12 +18,12 @@ export default function HomeScreen({ navigation }) {
         const threads = querySnapshot.docs.map((documentSnapshot) => {
           return {
             _id: documentSnapshot.id,
+            // give defaults
             name: "",
-
+            ...documentSnapshot.data(),
             latestMessage: {
               text: "",
             },
-            ...documentSnapshot.data(),
           };
         });
 

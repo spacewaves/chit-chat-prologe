@@ -165,7 +165,6 @@ export default function RoomScreen({ route }) {
       renderSend={renderSend}
       scrollToBottom
       scrollToBottomComponent={scrollToBottomComponent}
-      renderSystemMessage={renderSystemMessage}
     />
   );
 }
@@ -188,10 +187,5 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "#fff",
     fontWeight: "bold",
-  },
-  systemMessageWrapper: {
-    backgroundColor: "#6646ee",
-    borderRadius: 4,
-    padding: 5,
   },
 });

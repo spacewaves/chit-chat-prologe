@@ -14,12 +14,13 @@ export default function HomeScreen({ navigation }) {
       .firestore()
       .collection("THREADS")
       .orderBy("latestMessage.createdAt", "desc")
-      .onSnapshot((querySnapshot) => {
-        const threads = querySnapshot.docs.map((documentSnapshot) => {
+      .onSnapshot(querySnapshot) => {
+        const threads = querySnapshot.docs.map(documentSnapshot) => {
           return {
             _id: documentSnapshot.id,
             name: "",
 
+           
             latestMessage: {
               text: "",
             },

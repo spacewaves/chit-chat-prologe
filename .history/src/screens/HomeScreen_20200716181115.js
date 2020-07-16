@@ -18,11 +18,8 @@ export default function HomeScreen({ navigation }) {
         const threads = querySnapshot.docs.map((documentSnapshot) => {
           return {
             _id: documentSnapshot.id,
+            // give defaults
             name: "",
-
-            latestMessage: {
-              text: "",
-            },
             ...documentSnapshot.data(),
           };
         });
@@ -56,7 +53,7 @@ export default function HomeScreen({ navigation }) {
           >
             <List.Item
               title={item.name}
-              description={item.latestMessage.text}
+              description="Item description"
               titleNumberOfLines={1}
               titleStyle={styles.listTitle}
               descriptionStyle={styles.listDescription}

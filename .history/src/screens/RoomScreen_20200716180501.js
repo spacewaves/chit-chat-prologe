@@ -189,9 +189,4 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontWeight: "bold",
   },
-  systemMessageWrapper: {
-    backgroundColor: "#6646ee",
-    borderRadius: 4,
-    padding: 5,
-  },
 });

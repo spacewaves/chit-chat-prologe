@@ -35,16 +35,6 @@ export default function RoomScreen({ route }) {
     },
   ]);
 
-  function renderSystemMessage(props) {
-    return (
-      <SystemMessage
-        {...props}
-        wrapperStyle={styles.systemMessageWrapper}
-        textStyle={styles.systemMessageText}
-      />
-    );
-  }
-
   async function handleSend(messages) {
     const text = messages[0].text;
 
@@ -165,7 +155,6 @@ export default function RoomScreen({ route }) {
       renderSend={renderSend}
       scrollToBottom
       scrollToBottomComponent={scrollToBottomComponent}
-      renderSystemMessage={renderSystemMessage}
     />
   );
 }
@@ -183,15 +172,5 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-  },
-  systemMessageText: {
-    fontSize: 14,
-    color: "#fff",
-    fontWeight: "bold",
-  },
-  systemMessageWrapper: {
-    backgroundColor: "#6646ee",
-    borderRadius: 4,
-    padding: 5,
   },
 });
