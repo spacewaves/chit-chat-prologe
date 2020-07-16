@@ -93,8 +93,10 @@ export default function RoomScreen({ route }) {
         setMessages(messages);
       });
 
+    // Stop listening for updates whenever the component unmounts
     return () => messagesListener();
   }, []);
+
   function renderSend(props) {
     return (
       <Send {...props}>

@@ -30,6 +30,10 @@ export default function RoomScreen({ route }) {
     },
   ]);
 
+  useEffect(() => {
+    console.log({ user });
+  }, []);
+
   async function handleSend(messages) {
     const text = messages[0].text;
 
@@ -47,8 +51,7 @@ export default function RoomScreen({ route }) {
         },
       });
 
-    await firebase
-      .firestore()
+    await firestore()
       .collection("THREADS")
       .doc(thread._id)
       .set(
@@ -60,41 +63,40 @@ export default function RoomScreen({ route }) {
         },
         { merge: true }
       );
-  }
+    useEffect(() => {
+      const messagesListener = firestore()
+        .collection("THREADS")
+        .doc(thread._id)
+        .collection("MESSAGES")
+        .orderBy("createdAt", "desc")
+        .onSnapshot((querySnapshot) => {
+          const messages = querySnapshot.docs.map((doc) => {
+            const firebaseData = doc.data();
 
-  useEffect(() => {
-    const messagesListener = firebase
-      .firestore()
-      .collection("THREADS")
-      .doc(thread._id)
-      .collection("MESSAGES")
-      .orderBy("createdAt", "desc")
-      .onSnapshot((querySnapshot) => {
-        const messages = querySnapshot.docs.map((doc) => {
-          const firebaseData = doc.data();
-
-          const data = {
-            _id: doc.id,
-            text: "",
-            createdAt: new Date().getTime(),
-            ...firebaseData,
-          };
-
-          if (!firebaseData.system) {
-            data.user = {
-              ...firebaseData.user,
-              name: firebaseData.user.email,
+            const data = {
+              _id: doc.id,
+              text: "",
+              createdAt: new Date().getTime(),
+              ...firebaseData,
             };
-          }
 
-          return data;
+            if (!firebaseData.system) {
+              data.user = {
+                ...firebaseData.user,
+                name: firebaseData.user.email,
+              };
+            }
+
+            return data;
+          });
+
+          setMessages(messages);
         });
 
-        setMessages(messages);
-      });
+      return () => messagesListener();
+    }, []);
+  }
 
-    return () => messagesListener();
-  }, []);
   function renderSend(props) {
     return (
       <Send {...props}>

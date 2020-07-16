@@ -63,8 +63,7 @@ export default function RoomScreen({ route }) {
   }
 
   useEffect(() => {
-    const messagesListener = firebase
-      .firestore()
+    const messagesListener = firestore()
       .collection("THREADS")
       .doc(thread._id)
       .collection("MESSAGES")

@@ -63,8 +63,7 @@ export default function RoomScreen({ route }) {
   }
 
   useEffect(() => {
-    const messagesListener = firebase
-      .firestore()
+    const messagesListener = firestore()
       .collection("THREADS")
       .doc(thread._id)
       .collection("MESSAGES")
@@ -93,8 +92,10 @@ export default function RoomScreen({ route }) {
         setMessages(messages);
       });
 
+    // Stop listening for updates whenever the component unmounts
     return () => messagesListener();
   }, []);
+
   function renderSend(props) {
     return (
       <Send {...props}>

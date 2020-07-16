@@ -22,14 +22,12 @@ export default function AddRoomScreen({ navigation }) {
           latestMessage: {
             text: `You have joined the room ${roomName}.`,
             createdAt: new Date().getTime(),
-          },
-        })
-        .then((docRef) => {
-          docRef.collection("MESSAGES").add({
-            text: `You have joined the room ${roomName}.`,
-            createdAt: new Date().getTime(),
-            system: true,
-          });
+          },.then(docRef => {
+            docRef.collection('MESSAGES').add({
+              text: `You have joined the room ${roomName}.`,
+              createdAt: new Date().getTime(),
+              system: true
+            });
         })
         .then(() => {
           navigation.navigate("Home");
