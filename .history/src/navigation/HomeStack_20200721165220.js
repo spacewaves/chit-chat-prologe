@@ -10,7 +10,7 @@ const ChatAppStack = createStackNavigator();
 const ModalStack = createStackNavigator();
 
 function ChatApp() {
-  const { logout } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
   return (
     <ChatAppStack.Navigator
       screenOptions={{

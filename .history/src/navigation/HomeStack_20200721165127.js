@@ -1,16 +1,16 @@
-import React, { useContext } from "react";
+import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "../screens/HomeScreen";
 import AddRoomScreen from "../screens/AddRoomScreen";
 import { IconButton } from "react-native-paper";
-import { AuthContext } from "../navigation/AuthProvider";
+
 import RoomScreen from "../screens/RoomScreen";
 
 const ChatAppStack = createStackNavigator();
 const ModalStack = createStackNavigator();
+const { user, logout } = useContext(AuthContext);
 
 function ChatApp() {
-  const { logout } = useContext(AuthContext);
   return (
     <ChatAppStack.Navigator
       screenOptions={{

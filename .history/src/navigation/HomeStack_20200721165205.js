@@ -8,9 +8,9 @@ import RoomScreen from "../screens/RoomScreen";
 
 const ChatAppStack = createStackNavigator();
 const ModalStack = createStackNavigator();
+const { user, logout } = useContext(AuthContext);
 
 function ChatApp() {
-  const { logout } = useContext(AuthContext);
   return (
     <ChatAppStack.Navigator
       screenOptions={{

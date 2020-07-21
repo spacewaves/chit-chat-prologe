@@ -1,16 +1,16 @@
-import React, { useContext } from "react";
+import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "../screens/HomeScreen";
 import AddRoomScreen from "../screens/AddRoomScreen";
 import { IconButton } from "react-native-paper";
-import { AuthContext } from "../navigation/AuthProvider";
+import LoginScreen from "../screens/LoginScreen";
+
 import RoomScreen from "../screens/RoomScreen";
 
 const ChatAppStack = createStackNavigator();
 const ModalStack = createStackNavigator();
 
 function ChatApp() {
-  const { logout } = useContext(AuthContext);
   return (
     <ChatAppStack.Navigator
       screenOptions={{
@@ -40,7 +40,7 @@ function ChatApp() {
               icon="logout-variant"
               size={28}
               color="#ffffff"
-              onPress={() => logout()}
+              onPress={() => navigation.navigate("Login")}
             />
           ),
         })}
@@ -61,6 +61,7 @@ export default function HomeStack() {
     <ModalStack.Navigator mode="modal" headerMode="none">
       <ModalStack.Screen name="ChatApp" component={ChatApp} />
       <ModalStack.Screen name="AddRoom" component={AddRoomScreen} />
+      <ModalStack.Screen name="Login" component={LoginScreen} />
     </ModalStack.Navigator>
   );
 }
